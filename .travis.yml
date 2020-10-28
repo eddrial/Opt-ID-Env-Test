@@ -5,7 +5,7 @@ services:
 
 install:
   - docker pull josswhittle/opt-id:env-v3
-  - docker run -v $(pwd):/tmp/repo/ josswhittle/opt-id:env-v3 --name env
+  - docker run --name env -v $(pwd):/tmp/repo/ josswhittle/opt-id:env-v3 
   
 script:
   - docker exec env pip install -e /tmp/repo
