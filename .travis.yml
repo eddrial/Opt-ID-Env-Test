@@ -7,4 +7,4 @@ install:
   - docker pull josswhittle/opt-id:env-v3
 
 script:
-  - docker run --rm -it -v $(pwd):/tmp/repo/ josswhittle/opt-id:env-v3 /bin/bash/ -c "pip install -e /tmp/repo && python -B -m pytest -p no:cacheprovider /tmp/repo/tests/"
+  - docker run --rm -it -v $(pwd):/tmp/repo/ josswhittle/opt-id:env-v3 /bin/bash -c "pip install -e /tmp/repo && python -B -m pytest -p no:cacheprovider /tmp/repo/tests/"
