@@ -5,11 +5,11 @@ services:
 
 install:
   - docker pull josswhittle/opt-id:env-v3
-  - docker run -itd --name env -e COVERALLS_REPO_TOKEN -v $(pwd):/tmp/repo/ josswhittle/opt-id:env-v3
+  - docker run -itd --name env -v $(pwd):/tmp/repo/ -w /tmp/repo/ josswhittle/opt-id:env-v3
   
 script:
-  - docker exec env pip install -e /tmp/repo
-  - docker exec env python -m pytest --cov=/tmp/repo/src/optidenvtest /tmp/repo/tests/
+  - docker exec env pip install -e .
+  - docker exec env python -m pytest --cov=src/optidenvtest tests/
 
 after_script:
   - docker exec env coveralls
