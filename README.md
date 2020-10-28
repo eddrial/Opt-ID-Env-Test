@@ -17,8 +17,8 @@ Start a container running the image that will keep running until we stop it...
   - `-itd` 
  	to run the container in interactive mode, and detached so that it keeps running after this line
 
-  - `--name` 
- 	env We can refer to this running container by the name "env"
+  - `--name env` 
+ 	We can refer to this running container by the name "env"
 
   - `--env-file <(env | grep TRAVIS)`
 	Grab all environment varaibles from the host starting with "TRAVIS" and forward them into the container to allow coveralls to report properly
