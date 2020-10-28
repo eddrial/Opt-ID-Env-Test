@@ -5,11 +5,11 @@ services:
 
 install:
   - docker pull josswhittle/opt-id:env-v3
-  - docker run --name env -v $(pwd):/tmp/repo/ josswhittle/opt-id:env-v3 
+  - docker run -it --name env -v $(pwd):/tmp/repo/ josswhittle/opt-id:env-v3 /bin/bash
   
 script:
-  - docker exec env pip install -e /tmp/repo
-  - docker exec env python -B -m pytest -p no:cacheprovider /tmp/repo/tests/
+  - docker exec -it env pip install -e /tmp/repo
+  - docker exec -it env python -B -m pytest -p no:cacheprovider /tmp/repo/tests/
 
 after_script:
   - docker stop env
