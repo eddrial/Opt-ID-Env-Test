@@ -9,7 +9,8 @@ install:
   
 script:
   - docker exec env pip install -e /tmp/repo
-  - docker exec env python -B -m pytest -p no:cacheprovider /tmp/repo/tests/
+  - docker exec env python -B -m pytest -p no:cacheprovider --cov=/tmp/repo/src/optidenvtest /tmp/repo/tests/
 
 after_script:
+  - docker exec env coveralls
   - docker stop env
