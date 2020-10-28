@@ -6,6 +6,8 @@ Uses Travis CI to test Docker images for the environments needed by the Opt-ID s
 
 Docker image pulled from `josswhittle/opt-id:env-v3` (see: https://hub.docker.com/r/josswhittle/opt-id/tags).
 
+## Travis CI Script
+
 Pull down the environment image we're going to use
 
 ```
